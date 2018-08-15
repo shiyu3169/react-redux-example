@@ -1,3 +1,6 @@
+## Project
+This is a trivial exaple for React-Redux to help students understand redux.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
