@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
+const ACTION1 = 'ACTION1';
+const ACTION2 = 'ACTION2';
 // Action Creator
 const someActionCreator = (someOptionalArgument) => {
     return {
@@ -16,10 +18,10 @@ const SomeComponent = ({someComponentProperty, dispatch}) => (
     <div>
         <h2>Some Component</h2>
         <button onClick={
-            () => dispatch(someActionCreator('ACTION1'))
+            () => dispatch(someActionCreator(ACTION1))
         }>Action1</button>
         <button onClick={
-            () => dispatch(someActionCreator('ACTION2'))
+            () => dispatch(someActionCreator(ACTION2))
         }>Action2</button>
         <h3>{someComponentProperty}</h3>
     </div>
