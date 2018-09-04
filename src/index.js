@@ -14,28 +14,31 @@ const someActionCreator = (someOptionalArgument) => {
 }
 
 // Component
-const SomeComponent = ({someComponentProperty, dispatch}) => (
+const SomeComponent = ({someComponentProperty, someEventHandler}) => (
     <div>
         <h2>Some Component</h2>
-        <button onClick={
-            () => dispatch(someActionCreator(ACTION1))
-        }>Action1</button>
-        <button onClick={
-            () => dispatch(someActionCreator(ACTION2))
-        }>Action2</button>
+        <button onClick={() => someEventHandler(ACTION1)}>Action1</button>
+        <button onClick={() => someEventHandler(ACTION2)}>Action2</button>
         <h3>{someComponentProperty}</h3>
     </div>
 )
 
-// Mapper
+// State to Props Mapper
 function someStateToPropsMapper(state) {
     return {
         someComponentProperty: state.someStateAttribute
     }
 }
 
+//  Dispatch to Props Mapper
+function someDispatchToPropsMapper(dispatch) {
+    return {
+        someEventHandler: (value) => dispatch(someActionCreator(value))
+    }
+}
+
 // Container
-const SomeContainer = connect(someStateToPropsMapper)(SomeComponent)
+const SomeContainer = connect(someStateToPropsMapper, someDispatchToPropsMapper)(SomeComponent)
 
 // Reducer
 const someReducer = (state = {someDefaultProperty: 'some state'}, action) => {
