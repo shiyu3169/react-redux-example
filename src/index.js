@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
+// Action Creator
+const someActionCreator = (someOptionalArgument) => {
+    return {
+        type: someOptionalArgument,
+        someOptionalAtrribute: 'some value'
+    }
+}
+
 // Component
 const SomeComponent = ({someComponentProperty, dispatch}) => (
     <div>
         <h2>Some Component</h2>
         <button onClick={
-            () => dispatch({type: 'ACTION1'})
+            () => dispatch(someActionCreator('ACTION1'))
         }>Action1</button>
         <button onClick={
-            () => dispatch({type: 'ACTION2'})
+            () => dispatch(someActionCreator('ACTION2'))
         }>Action2</button>
         <h3>{someComponentProperty}</h3>
     </div>
